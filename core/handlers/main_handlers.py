@@ -30,7 +30,7 @@ async def top_up(message: Message, state: FSMContext):
 
 
 async def top_up_query(callback_query: CallbackQuery, state: FSMContext):
-    photo = FSInputFile('top_up_photo.jpg')
+    photo = FSInputFile(MEDIA_DIR + 'top_up_photo.jpg')
     await callback_query.message.answer_photo(photo=photo,
                                               caption=MESSAGES['top_up'],
                                               reply_markup=back_menu_reply())
@@ -82,9 +82,10 @@ async def no_money(callback_query: CallbackQuery, bot: Bot):
 
 
 async def buy_gems(message: Message):
-    photo = FSInputFile('item_pick_photo.jpg')
-    await message.answer(photo, caption=MESSAGES['buy_gems'],
-                         reply_markup=buy_gems_inline())
+    photo = FSInputFile(MEDIA_DIR + 'item_pick_photo.jpg')
+    await message.answer_photo(photo=photo, 
+                               caption=MESSAGES['buy_gems'],
+                               reply_markup=buy_gems_inline())
 
 
 async def buy_pass(message: Message):
@@ -131,9 +132,10 @@ async def reviews(message: Message):
 
 
 async def buy_account(message: Message):
-    photo = FSInputFile('item_pick_photo.jpg')
-    await message.answer(photo, caption=MESSAGES['accounts'],
-                         reply_markup=buy_accounts_inline())
+    photo = FSInputFile(MEDIA_DIR + 'item_pick_photo.jpg')
+    await message.answer_photo(photo=photo, 
+                               caption=MESSAGES['accounts'],
+                               reply_markup=buy_accounts_inline())
 
 
 async def buy_account_pagination(callback_query: CallbackQuery, callback_data: Pagination):
