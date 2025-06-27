@@ -89,9 +89,10 @@ async def buy_gems(message: Message):
 
 
 async def buy_pass(message: Message):
-    photo = FSInputFile('item_pick_photo.jpg')
-    await message.answer(photo, caption=MESSAGES['buy_pass'],
-                         reply_markup=buy_pass_inline())
+    photo = FSInputFile(MEDIA_DIR + 'item_pick_photo.jpg')
+    await message.answer_photo(photo=photo, 
+                               caption=MESSAGES['buy_pass'],
+                               reply_markup=buy_pass_inline())
 
 
 async def pay_out(message: Message):
