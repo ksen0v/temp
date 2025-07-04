@@ -1,0 +1,5 @@
+{
+    "bot_token": "token",
+    "countdown": 10,
+    "days_limit": 30
+}
